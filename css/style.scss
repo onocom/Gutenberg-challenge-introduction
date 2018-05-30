@@ -1,0 +1,30 @@
+$color-primary: #21759b;
+$color-secondary: #d54e21;
+$color-white: #ffffff;
+$color-text: #333333;
+
+
+body {
+	color: $color-text;
+}
+
+.gci-bg-primary {
+	background: $color-primary;
+}
+
+.gci-text-primary {
+	color: $color-primary;
+}
+
+.gci-bg-secondary {
+	background: $color-secondary;
+}
+.gci-text-secondary {
+	color: $color-secondary;
+}
+
+
+.gci-webfont {
+	font-family: 'Monoton', cursive;
+	font-weight: normal;
+}

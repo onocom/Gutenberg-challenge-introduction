@@ -1,0 +1,25 @@
+body {
+  color: #333333;
+}
+
+.gci-bg-primary {
+  background: #21759b;
+}
+
+.gci-text-primary {
+  color: #21759b;
+}
+
+.gci-bg-secondary {
+  background: #d54e21;
+}
+
+.gci-text-secondary {
+  color: #d54e21;
+}
+
+.gci-webfont {
+  font-family: 'Monoton', cursive;
+  font-weight: normal;
+}
+/*# sourceMappingURL=style.css.map */
