@@ -17,8 +17,8 @@ $gci = gutenberg_challenge_introduction::get_instance();
 <body>
 	<div class="p-1 p-md-5 text-center text-white gci-bg-primary">
 		<div class="col-md-12 mx-auto my-5 py-5">
-			<h1 class="display-3 font-weight-normal gci-webfont">Gutenberg<br>DEMO SITE</h1>
-			<p class="font-weight-normal lead">Gutenbergの使い方を覚えたり、機能について理解を深めるために、実際に手を動かしてみましょう。</p>
+			<h1 class="display-3 gci-webfont">Gutenberg<br>DEMO SITE</h1>
+			<p class="lead">Gutenbergの使い方を覚えたり、機能について理解を深めるために、実際に手を動かしてみましょう。</p>
 			<a href="https://github.com/onocom/gutenberg-challenge/" class="btn btn-light" target="_blank">紹介テーマダウンロード</a>
 		</div>
 	</div>
@@ -31,8 +31,8 @@ $gci = gutenberg_challenge_introduction::get_instance();
 	</div>
 	<div class="p-1 p-md-5 text-center text-white gci-bg-secondary ">
 		<div class="col-md-12 mx-auto my-5">
-			<h2 class="display-3 font-weight-normal gci-webfont">Gutenberg<br>Challenge</h2>
-			<p class="font-weight-normal lead">ランディングページをGutenberg で作ってみよう！</p>
+			<h2 class="display-3 gci-webfont">Gutenberg<br>Challenge</h2>
+			<p class="lead">ランディングページをGutenberg で作ってみよう！</p>
 		</div>
 	</div>
 	<div class="d-md-flex flex-md-equal w-100">
@@ -65,13 +65,17 @@ $gci = gutenberg_challenge_introduction::get_instance();
 	<div class="d-md-flex flex-md-equal w-100 mx-auto ">
 		<div class="bg-light w-100 py-5 px-3 text-center">
 			<div class="p-5">
-				<h3>誰かさんが公開したページ</h3>
+				<h3 class="display-3 gci-webfont">Challenger List</h3>
 				<div style="max-width: 600px;max-height: 50vh;overflow: auto;" class="bg-white mx-auto p-0">
 					<div class="m-0 text-left list-group">
 					<?php
-					$posts = get_posts('posts_per_page=5&orderby=modified');
-					foreach( $posts as $the_post ) {
-						echo "<a class='list-group-item' href='" . get_permalink($the_post) . "' target='_blank'>[ID:" . $the_post->ID . "] " . get_permalink($the_post) . "</a>";
+					$posts = get_posts('posts_per_page=100&orderby=modified');
+					if( $posts ){
+						foreach( $posts as $the_post ) {
+							echo "<a class='list-group-item' href='" . get_permalink($the_post) . "' target='_blank'>[ID:" . $the_post->ID . "] " . get_permalink($the_post) . "</a>";
+						}
+					} else {
+						echo "none";
 					}
 					?>
 					</div>
