@@ -157,7 +157,7 @@ class gutenberg_challenge_introduction {
 		<?php  else : ?>
 			<h2 class="display-5">LOGIN</h2>
 			<p><a href="<?php echo esc_url( get_site_url() . "/wp-login.php?redirect_to=" . get_site_url() . "/wp-admin/post-new.php" );?>" class="btn btn-secondary">ログイン画面</a></p>
-			<p><?php $this->get_login_user_data();?></p>
+			<p><?php echo $this->get_login_user_data();?></p>
 		<?php
 		endif; 
 	}
