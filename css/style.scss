@@ -19,12 +19,23 @@ body {
 .gci-bg-secondary {
 	background: $color-secondary;
 }
+
 .gci-text-secondary {
 	color: $color-secondary;
 }
 
-
 .gci-webfont {
 	font-family: 'Monoton', cursive;
 	font-weight: normal;
+}
+
+.gci-image-scroll {
+	max-height: 70vh;
+	overflow: auto;
+}
+
+.gci-result-scroll {
+	max-width: 600px;
+	max-height: 50vh;
+	overflow: auto;
 }

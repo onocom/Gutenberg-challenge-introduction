@@ -49,7 +49,7 @@ $gci = gutenberg_challenge_introduction::get_instance();
 
 			</div>
 			<div class="p-5">
-				<div style="max-height: 70vh;overflow: auto;" class="mx-auto">
+				<div class="mx-auto gci-image-scroll">
 					<img src="https://github.com/onocom/gutenberg-challenge/raw/master/00_data/step01_check-finish-design-data/png/landing-page.png" class="img-fluid" alt="完成イメージ" >
 				</div>
 			</div>
@@ -66,7 +66,7 @@ $gci = gutenberg_challenge_introduction::get_instance();
 		<div class="bg-light w-100 py-5 px-3 text-center">
 			<div class="p-5">
 				<h3 class="display-3 gci-webfont">Challenger List</h3>
-				<div style="max-width: 600px;max-height: 50vh;overflow: auto;" class="bg-white mx-auto p-0">
+				<div class="bg-white mx-auto p-0 gci-result-scroll">
 					<div class="m-0 text-left list-group">
 					<?php
 					$posts = get_posts('posts_per_page=100&orderby=modified');

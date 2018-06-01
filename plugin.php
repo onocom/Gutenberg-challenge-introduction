@@ -131,8 +131,8 @@ class gutenberg_challenge_introduction {
 		$hash = hash('md5', $today . $site_url );
 		$hash = str_rot13($hash);
 		$hash = mb_convert_case($hash, MB_CASE_TITLE);
-		$search  = array('A', 'C', 'E', 'G', 'I', 'K', 'M');
-		$replace = array('@', '#', '+', ',', '$', '-', '_');
+		$search  = array( 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
+		$replace = array( '@', '#', '+', ',', '$', '-', '_', '!', '%', '@', '#', '+', ',', '$', '-', '_', '!', '%', '@', '#', '+', ',', '$', '-', '_', '!' );
 
 		$hash = str_replace($search,$replace,$hash);
 		$password = mb_substr($hash,5,12);

@@ -22,4 +22,15 @@ body {
   font-family: 'Monoton', cursive;
   font-weight: normal;
 }
+
+.gci-image-scroll {
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.gci-result-scroll {
+  max-width: 600px;
+  max-height: 50vh;
+  overflow: auto;
+}
 /*# sourceMappingURL=style.css.map */
