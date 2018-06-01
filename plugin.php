@@ -125,10 +125,10 @@ class gutenberg_challenge_introduction {
 	 * 　生成されるパスワードは毎日変更される
 	 */
 	public function get_password() {
-		// 日付とサイトURLでハッシュを生成して12文字程度で切る
-		$today = date_i18n("Ymd");
-		$site_url = get_site_url();
-		$hash = hash('md5', $today . $site_url );
+		$seed = date_i18n("Ymd");
+		$seed .= get_site_url();
+		$seed .= $this->get_plugin_path();
+		$hash = hash('md5', $seed );
 		$hash = str_rot13($hash);
 		$hash = mb_convert_case($hash, MB_CASE_TITLE);
 		$search  = array( 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
