@@ -131,7 +131,7 @@ class gutenberg_challenge_introduction {
 		$hash = hash('md5', $seed );
 		$hash = str_rot13($hash);
 		$hash = mb_convert_case($hash, MB_CASE_TITLE);
-		$search  = array( 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'h', 'i', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', '6' );
+		$search  = array( 'A', 'b', 'C', 'D', 'E', 'F', 'G', 'h', 'i', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
 		$replace = array( '@', '#', '+', ',', '$', '-', '_', '!', '%', '@', '#', '+', ',', '$', '-', '_', '!', '%', '@', '#', '+', ',', '$', '-', '_', '!' );
 
 		$hash = str_replace($search,$replace,$hash);
