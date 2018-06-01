@@ -44,6 +44,7 @@ $gci = gutenberg_challenge_introduction::get_instance();
 					<a href="https://github.com/onocom/gutenberg-challenge/raw/master/00_data/step01_check-finish-design-data/pdf/landing-page.pdf" class="btn btn-primary" target="_blank">PDF</a>
 					<a href="https://github.com/onocom/gutenberg-challenge/raw/master/00_data/step01_check-finish-design-data/png/landing-page.png" class="btn btn-primary" target="_blank">PNG</a>
 					<a href="https://github.com/onocom/gutenberg-challenge/raw/master/00_data/step01_check-finish-design-data/xd/landing-page.xd" class="btn btn-primary" target="_blank">Xd</a>
+					<a href="https://github.com/onocom/gutenberg-challenge/raw/master/00_data/step01_check-finish-design-data/landing-page.txt" class="btn btn-success" target="_blank">TEXT</a>
 				</div>
 				<a href="https://github.com/onocom/gutenberg-challenge/" class="btn btn-secondary" target="_blank">GitHub</a>
 
