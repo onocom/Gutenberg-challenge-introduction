@@ -44,6 +44,11 @@ class gutenberg_challenge_introduction {
 			array( $this, 'register_project_templates' ) 
 		);
 
+		/**
+		 * ログインページにユーザ名とパスワードを表示する
+		 */
+		add_filter('login_message', array( $this, 'custom_login_message' ));
+
 
 		// Add a filter to the template include to determine if the page has our 
 		// template assigned and return it's path
@@ -71,6 +76,11 @@ class gutenberg_challenge_introduction {
 		} else {
 			return new self();
 		}
+	}
+
+	public function custom_login_message() {
+		$message = '<p class="message">' . $this->get_login_user_data() . '</p><br />';
+		return $message;
 	}
 
 	public function get_plugin_template_part($slug, $name = null) {
@@ -132,10 +142,10 @@ class gutenberg_challenge_introduction {
 	/**
 	 * ユーザー名とパスワードを表示
 	 */
-	public function get_login_data() {
+	public function get_login_user_data() {
 		$username = $this->get_username();
 		$password = $this->get_password();
-		return '<p><small>username: ' . esc_html($username) . ' / password: ' . esc_html($password) . '</small></p>';
+		return 'username: ' . esc_html($username) . ' / password: ' . esc_html($password) . '';
 	}
 	
 	/**
@@ -147,8 +157,8 @@ class gutenberg_challenge_introduction {
 		<?php  else : ?>
 			<h2 class="display-5">LOGIN</h2>
 			<p><a href="<?php echo esc_url( get_site_url() . "/wp-login.php?redirect_to=" . get_site_url() . "/wp-admin/post-new.php" );?>" class="btn btn-secondary">ログイン画面</a></p>
+			<p><?php $this->get_login_user_data();?></p>
 		<?php
-		echo $this->get_login_data();
 		endif; 
 	}
 	
