@@ -102,8 +102,59 @@ class gutenberg_challenge_introduction {
 	public function get_plugin_path() {
 		return dirname(__FILE__);
 	}
+	
+	/**
+	 * ユーザ名取得
+	 */
+	public function get_username() {
+		return "gutenberg";
+	}
+	
+	/**
+	 * パスワード取得
+	 * 　生成されるパスワードは毎日変更される
+	 */
+	public function get_password() {
+		// 日付とサイトURLでハッシュを生成して12文字程度で切る
+		$today = date_i18n("Ymd");
+		$site_url = get_site_url();
+		$hash = hash('md5', $today . $site_url );
+		$hash = str_rot13($hash);
+		$hash = mb_convert_case($hash, MB_CASE_TITLE);
+		$search  = array('A', 'C', 'E', 'G', 'I', 'K', 'M');
+		$replace = array('@', '#', '+', ',', '$', '-', '_');
+
+		$hash = str_replace($search,$replace,$hash);
+		$password = mb_substr($hash,5,12);
+		return $password;
+	}
 
 	/**
+	 * ユーザー名とパスワードを表示
+	 */
+	public function get_login_data() {
+		$username = $this->get_username();
+		$password = $this->get_password();
+		return '<p><small>username: ' . esc_html($username) . ' / password: ' . esc_html($password) . '</small></p>';
+	}
+	
+	/**
+	 * ログイン画面へのリンクを生成
+	 */
+	public function get_edit_link() {
+		if( is_user_logged_in() ) : ?>
+			<a href="<?php echo esc_url( get_site_url()."/wp-admin/post-new.php" );?>" class="btn btn-secondary btn-lg">Gutenberg 編集画面へ</a>
+		<?php  else : ?>
+			<h2 class="display-5">LOGIN</h2>
+			<p><a href="<?php echo esc_url( get_site_url() . "/wp-login.php?redirect_to=" . get_site_url() . "/wp-admin/post-new.php" );?>" class="btn btn-secondary">ログイン画面</a></p>
+		<?php
+		echo $this->get_login_data();
+		endif; 
+	}
+	
+
+	/**
+	 * 固定ページ用のページテンプレートを追加
 	 * http://www.wpexplorer.com/wordpress-page-templates-plugin/
 	 */
 	public function add_new_template( $page_templates ) {
@@ -111,16 +162,6 @@ class gutenberg_challenge_introduction {
 		return $page_templates;
 	}
 
-	public function get_edit_link() {
-		if( is_user_logged_in() ) : ?>
-			<a href="<?php echo esc_url( get_site_url()."/wp-admin/post-new.php" );?>" class="btn btn-secondary btn-lg">Gutenberg 編集画面へ</a>
-		<?php  else : ?>
-			<h2 class="display-5">LOGIN</h2>
-			<p><a href="<?php echo esc_url( get_site_url() . "/wp-login.php?redirect_to=" . get_site_url() . "/wp-admin/post-new.php" );?>" class="btn btn-secondary">ログイン画面</a></p>
-			<p><small>username: demo / password: wcosaka2018</small></p>
-		<?php  endif; 
-	}
-	
 	public function register_project_templates( $atts ) {
 
 		// Create the key used for the themes cache
@@ -146,7 +187,8 @@ class gutenberg_challenge_introduction {
 
 		return $atts;
 
-	} 
+	}
+
 	public function view_project_template( $template ) {
 		
 		// Get global post
